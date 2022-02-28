@@ -1,24 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
+import Menu from './Components/menu/Menu';
+import Page from './Components/Page';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
-function App() {
+
+const App: React.FC = () => {
+  
+  const [loading, setLoading] = React.useState<boolean>(true)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="header">Uptive @ SKF</div>
+      <BrowserRouter>
+      <div className="page">
+        <div className="menu"> 
+            <Menu  loading={loading} setLoading={setLoading} />
+        </div>
+        <div className="main">
+          <Routes>
+            <Route index element={<Page loading={loading} setLoading={setLoading} />} />
+            <Route path="/:link" element={<Page loading={loading} setLoading={setLoading}   />} />
+          </Routes>
+        </div>
+      </div>
+      </BrowserRouter>
     </div>
   );
 }
