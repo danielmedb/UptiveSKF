@@ -10,10 +10,11 @@
   
 .header{
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 1.2rem;
   font-weight: bold;
   padding: 20px 15px;
-  background-color: #eaeaea;
+  background-color: #0f58d6;
+  color: white;
 }
 
 .page{
@@ -29,6 +30,7 @@
   padding-bttom: 4px;
   height: 100%;
   width: 250px;
+  min-width: 250px;
   background-color: #eaeaea;
 }
 

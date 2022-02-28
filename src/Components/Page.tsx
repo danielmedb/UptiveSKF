@@ -1,35 +1,25 @@
-import React from 'react'
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import '../css/main.css'
+import '../css/main.css';
 import Spinner from './Spinner';
 
 interface Props {
   loading: boolean;
-  setLoading: (active: boolean) => void
+  setLoading: (active: boolean) => void;
 }
 
-const Page: React.FC<Props> = ({loading, setLoading}) => {
-
-const { link } = useParams();
+const Page: React.FC<Props> = ({ loading, setLoading }) => {
+  const { link } = useParams();
   return (
     <>
-
-      {loading && 
-      (
+      {loading && (
         <div className="loading">
           <Spinner />
         </div>
-      )
-      }
-      <p>
-          {
-              link
-              ? link 
-              : 'Nothing selected'
-          }
-      </p>
+      )}
+      <p>{link ? link : 'Nothing selected'}</p>
     </>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;
